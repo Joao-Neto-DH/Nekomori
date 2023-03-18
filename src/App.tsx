@@ -2,6 +2,7 @@ import Header, { GlobalStyle } from "./components/Header";
 import Logo from "./components/Logo";
 import MainArea from "./components/MainArea";
 import Navigation from "./components/Navigation";
+import Profile from "./components/Profile";
 import SearchForm from "./components/SearchForm";
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
                   <button type="submit" aria-label="pesquisar" className="ri-search-line"></button>
               </SearchForm>
               {/* Perfil */}
-              <div className="profile">
+              <Profile>
                   <button className="ri-alarm-fill" aria-label="agenda"></button>
                   <button className="ri-notification-2-fill" aria-label="notificações"></button>
                   <button className="user" title="joão neto" aria-label="perfil">
@@ -37,7 +38,7 @@ function App() {
                           <li><a href="#">Sair</a></li>
                       </ul>
                   </button>
-              </div>
+              </Profile>
           </div>
         </>
       </Header>
