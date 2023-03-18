@@ -90,7 +90,7 @@ const Header = styled.header<{}>`
         list-style: none;
         padding: 8px;
         margin: 0;
-        background-color: var(--secondary);
+        background-color: #1f2531;
         box-shadow: 0 2px 10px rgba(0, 0, 0, .3);
         text-align: left;
         position: absolute;
@@ -107,7 +107,7 @@ const Header = styled.header<{}>`
         padding: 8px 16px;
     }
     & .user a:hover{
-        background-color: var(--primary);
+        background-color: #282c38;
     }
 `;
 

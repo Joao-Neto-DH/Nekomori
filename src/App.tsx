@@ -1,6 +1,3 @@
-// import './input.css';
-
-import Button from "./components/Button";
 import Header, { GlobalStyle } from "./components/Header";
 import Logo from "./components/Logo";
 
@@ -16,12 +13,12 @@ function App() {
 
           <div>
               <img src="/nekomori-logo.png" width="150" alt="anime nekomori"/>
-
-              <form action="/search" method="get">
+    	        {/* Formulário de pesquisa */}
+              <form action="/search" method="GET">
                   <input type="text" name="search" id="search" placeholder="Buscar por animes" required/>
                   <button type="submit" aria-label="pesquisar" className="ri-search-line"></button>
               </form>
-
+              {/* Perfil */}
               <div className="profile">
                   <button className="ri-alarm-fill" aria-label="agenda"></button>
                   <button className="ri-notification-2-fill" aria-label="notificações"></button>
@@ -29,6 +26,7 @@ function App() {
                       <div className="user-img">
                           <img src="/naruto.jpg" alt="joão neto"/>
                       </div>
+                      {/* Opções de usuário */}
                       <ul>
                           <li><a href="#">Perfil</a></li>
                           <li><a href="#">Definições</a></li>
@@ -40,8 +38,6 @@ function App() {
           </div>
         </>
       </Header>
-      <Button gender="primary">Hola</Button>
-      <Button gender="secondary">Hola</Button>
     </>
   )
 }
