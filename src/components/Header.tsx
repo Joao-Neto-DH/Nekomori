@@ -60,30 +60,6 @@ const Header = styled.header<{}>`
         justify-content: space-between;
         align-items: center;
     }
-    form{
-        margin: 0 auto;
-        width: 40vw;
-        display: flex;
-        align-items: stretch;
-        background: #1f232e;
-        border-radius: 4px;
-        overflow: hidden;
-    }
-    form *{
-        margin: 0;
-        border: none;
-        background-color: transparent;
-    }
-    input{
-        padding: 12px;
-        padding-right: 0;
-        width: 100%;
-        align-self: stretch;
-        outline: none;
-    }
-    form button{
-        padding: 10px;
-    }
     .user-img{
         width: 36px;
         height: 36px;

@@ -2,6 +2,7 @@ import Header, { GlobalStyle } from "./components/Header";
 import Logo from "./components/Logo";
 import MainArea from "./components/MainArea";
 import Navigation from "./components/Navigation";
+import SearchForm from "./components/SearchForm";
 
 function App() {
   return (
@@ -16,10 +17,10 @@ function App() {
           <div>
               <img src="/nekomori-logo.png" width="150" alt="anime nekomori"/>
     	        {/* Formulário de pesquisa */}
-              <form action="/search" method="GET">
+              <SearchForm action="/search" method="GET">
                   <input type="text" name="search" id="search" placeholder="Buscar por animes" required/>
                   <button type="submit" aria-label="pesquisar" className="ri-search-line"></button>
-              </form>
+              </SearchForm>
               {/* Perfil */}
               <div className="profile">
                   <button className="ri-alarm-fill" aria-label="agenda"></button>
