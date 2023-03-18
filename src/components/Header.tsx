@@ -32,18 +32,35 @@ const Header = styled.header<{}>`
     background-color: transparent;
     border-bottom: 1px solid #3b3b45;
 
-    & > div{
+    .brand{
+        position: relative;
+        
+        &.active::before{
+            content: '';
+            height: 60%;
+            width: 6px;
+            display: inline-block;
+            background-color: #2daff2;
+            border-bottom-right-radius: 4px;
+            border-top-right-radius: 4px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+    }
+    > div{
         width: 100%;
         display: flex;
         padding: 0 20px;
         align-items: center;
     }
-    & div.profile{
+    div.profile{
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
-    & form{
+    form{
         margin: 0 auto;
         width: 40vw;
         display: flex;
@@ -52,40 +69,40 @@ const Header = styled.header<{}>`
         border-radius: 4px;
         overflow: hidden;
     }
-    & form *{
+    form *{
         margin: 0;
         border: none;
         background-color: transparent;
     }
-    & input{
+    input{
         padding: 12px;
         padding-right: 0;
         width: 100%;
         align-self: stretch;
         outline: none;
     }
-    & form button{
+    form button{
         padding: 10px;
     }
-    & .user-img{
+    .user-img{
         width: 36px;
         height: 36px;
         position: relative;
         border-radius: 50%;
         overflow: hidden;
     }
-    & .user-img img{
+    .user-img img{
         width: 100%;
     }
-    & .user{
+    .user{
         position: relative;
     }
-    & .user:focus ul, & .user:focus-within ul{
+    .user:focus ul, .user:focus-within ul{
         opacity: 1;
         transform: translateY(110%);
         visibility: visible;
     }
-    & .user ul{
+    .user ul{
         visibility: hidden;
         list-style: none;
         padding: 8px;
@@ -102,11 +119,11 @@ const Header = styled.header<{}>`
         transition: .1s;
         z-index: 10000;
     }
-    & .user a{
+    .user a{
         display: block;
         padding: 8px 16px;
     }
-    & .user a:hover{
+    .user a:hover{
         background-color: #282c38;
     }
 `;
