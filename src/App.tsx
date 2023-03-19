@@ -11,7 +11,7 @@ function App() {
       <GlobalStyle />
       <Header>
         <>
-          <Logo className="brand active" gender="primary" as="a" href="/">
+          <Logo className="brand active" href="/">
               <span className="ri-home-fill"></span>
           </Logo>
 
@@ -44,13 +44,13 @@ function App() {
       </Header>
       <MainArea>
         <Navigation>
-          <nav>
+          {/* <nav> */}
             <ul>
                 <li className="active"><a href={"/"} className="ri-play-fill btn"><span aria-label="player">Reprodutor</span></a></li>
                 <li className=""><a href={"/"} className="ri-chat-3-fill btn"><span aria-label="bate-papo">Bate-Papo</span></a></li>
                 <li className=""><a href={"/"} className="ri-newspaper-fill btn"><span aria-label="notícias">Notícias</span></a></li>
             </ul>
-          </nav>
+          {/* </nav> */}
         </Navigation>
       </MainArea>
     </>

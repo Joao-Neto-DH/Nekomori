@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Navigation = styled.div`
+const Navigation = styled.nav`
     
     background-color: #1f2531;
     height: 100%;
