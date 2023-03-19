@@ -44,7 +44,7 @@ const Profile = styled.div`
         padding: 8px 16px;
     }
     .user a:hover{
-        background-color: #282c38;
+        background-color: ${props => props.theme.colors.main};
     }
 `;
 

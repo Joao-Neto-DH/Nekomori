@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Navigation = styled.nav`
     
-    background-color: #1f2531;
+    background-color: ${props => props.theme.colors.secondary};
     height: 100%;
     ul{
         list-style: none;
@@ -29,14 +29,14 @@ const Navigation = styled.nav`
         opacity: 0;
         
         transform: translate(-100%,-50%);
-        background-color: #1f2531;
+        background-color: ${props => props.theme.colors.secondary};
         box-shadow: 0 0 8px rgba(0, 0, 0, .3);
         transition: .3s;
     }
     span::before, span::after{
         content: '';
         border: 12px solid transparent;
-        border-right-color: #1f2531;
+        border-right-color: ${props => props.theme.colors.secondary};
         position: absolute;
         left: 0;
         top: 50%;
