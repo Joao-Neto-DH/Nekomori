@@ -3,9 +3,9 @@ import Button from "./Button";
 
 const Logo = styled.a`
     border: none;
-    color: rgb(206, 210, 211);
+    color: rgb(${props => props.theme.text});
     background-color: transparent;
-    border-radius: 4px;
+    border-radius: ${props => props.theme.borderRadius};
     cursor: pointer;
     display: inline-block;
     text-decoration: none;
