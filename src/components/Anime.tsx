@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactElement } from "react";
 
 const AnimeUnstyled: React.FC<{className?: string}> = ({className}) => (
     <div className={className}>
@@ -15,6 +16,26 @@ const AnimeUnstyled: React.FC<{className?: string}> = ({className}) => (
         <p className="anime-category">Acção, comédia</p>
     </div>
 );
+
+
+const AnimesUnstyled: React.FC<{
+    className?: string, 
+    children: ReactElement, 
+    row?: boolean
+}> = ({className, children, row = false}) => (
+
+    <div className={className} >
+        { children }
+    </div>
+);
+
+const Animes = styled(AnimesUnstyled)`
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    flex-wrap: nowrap;
+    gap: 40px;
+`;
+
 
 const Anime = styled(AnimeUnstyled)`
 > div {
@@ -66,3 +87,4 @@ h2{
 `;
 
 export default Anime;
+export {Animes as AnimeGroup};

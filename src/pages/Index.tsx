@@ -1,10 +1,9 @@
-import Anime from "../components/Anime";
-import Animes from "../components/Animes";
+import Anime, { AnimeGroup } from "../components/Anime";
 import SectionContent from "../components/SectionContent";
 
 const Index = ()=>(
     <SectionContent>
-        <Animes>
+        <AnimeGroup>
             <>
                 <Anime/>
                 <Anime/>
@@ -18,7 +17,7 @@ const Index = ()=>(
                 <Anime/>
                 <Anime/>
             </>
-        </Animes>
+        </AnimeGroup>
     </SectionContent>
 );
 
