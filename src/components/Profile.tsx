@@ -1,6 +1,25 @@
 import styled from "styled-components";
 
-const Profile = styled.div`
+const ProfileUnstyled: React.FC<{className?: string}> = ({className}) => (
+    <div className={className}>
+        <button className="ri-alarm-fill" aria-label="agenda"></button>
+        <button className="ri-notification-2-fill" aria-label="notificações"></button>
+        <button className="user" title="joão neto" aria-label="perfil">
+            <div className="user-img">
+                <img src="/naruto.jpg" alt="joão neto"/>
+            </div>
+            {/* Opções de usuário */}
+            <ul>
+                <li><a href="#">Perfil</a></li>
+                <li><a href="#">Definições</a></li>
+                <li><a href="#">Favoritos</a></li>
+                <li><a href="#">Sair</a></li>
+            </ul>
+        </button>
+    </div>
+)
+
+const Profile = styled(ProfileUnstyled)`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,7 +46,7 @@ const Profile = styled.div`
         list-style: none;
         padding: 8px;
         margin: 0;
-        background-color: #1f2531;
+        background-color: ${props => props.theme.colors.secondary};
         box-shadow: 0 2px 10px rgba(0, 0, 0, .3);
         text-align: left;
         position: absolute;
@@ -44,7 +63,7 @@ const Profile = styled.div`
         padding: 8px 16px;
     }
     .user a:hover{
-        background-color: #282c38;
+        background-color: ${props => props.theme.colors.main};
     }
 `;
 

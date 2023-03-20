@@ -1,6 +1,13 @@
 import styled from "styled-components";
 
-const SearchForm = styled.form`
+const SearchFormUnstyled: React.FC<{className?: string}> = ({className}) => (
+    <form className={className} action="/search" method="get">
+        <input type="text" name="search" id="search" placeholder="Buscar por animes" required/>
+        <button type="submit" aria-label="pesquisar" className="ri-search-line"></button>
+    </form>
+);
+
+const SearchForm = styled(SearchFormUnstyled)`
     margin: 0 auto;
     width: 40vw;
     display: flex;

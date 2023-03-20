@@ -12,7 +12,7 @@ const NavigationUnstyled: React.FC<{className?: string}> = ({className}) => (
 
 const Navigation = styled(NavigationUnstyled)`
     
-    background-color: #1f2531;
+    background-color: ${props => props.theme.colors.secondary};
     height: 100%;
     ul{
         list-style: none;
@@ -33,20 +33,20 @@ const Navigation = styled(NavigationUnstyled)`
         left: 100%;
         padding: 8px;
         position: absolute;
-        border-radius: 4px;
+        border-radius: ${props => props.theme.borderRadius};
         z-index: 1000;
         font-size: 0.75rem;
         opacity: 0;
         
         transform: translate(-100%,-50%);
-        background-color: #1f2531;
+        background-color: ${props => props.theme.colors.secondary};
         box-shadow: 0 0 8px rgba(0, 0, 0, .3);
         transition: .3s;
     }
     span::before, span::after{
         content: '';
         border: 12px solid transparent;
-        border-right-color: #1f2531;
+        border-right-color: ${props => props.theme.colors.secondary};
         position: absolute;
         left: 0;
         top: 50%;
@@ -59,7 +59,7 @@ const Navigation = styled(NavigationUnstyled)`
     a{
         font-size: 1.25rem;
         padding: 30px 18px;
-        opacity: .6;
+        opacity: 0.6;
     }
     .brand, .active{
         position: relative;
@@ -73,8 +73,8 @@ const Navigation = styled(NavigationUnstyled)`
         width: 6px;
         display: inline-block;
         background-color: #2daff2;
-        border-bottom-right-radius: 4px;
-        border-top-right-radius: 4px;
+        border-bottom-right-radius: ${props => props.theme.borderRadius};
+        border-top-right-radius: ${props => props.theme.borderRadius};
         position: absolute;
         left: 0;
         top: 50%;
