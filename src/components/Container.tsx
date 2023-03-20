@@ -21,6 +21,7 @@ const Container = styled(ContainerUnstyled)`
     main{
         width: calc(100% - 48px);
         overflow: auto;
+        padding: 20px;
     }
 `;
 

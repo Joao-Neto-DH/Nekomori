@@ -1,6 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Separator from "./components/Separator";
+import { ThemeProvider } from "styled-components";
+import Index from "./pages/Index";
 import Layout from "./pages/Layout";
+import { darkTheme } from "./themes/dark-theme";
 
 const router = createBrowserRouter([
   {
@@ -9,7 +11,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Separator />
+        element: <Index />
       }
     ]
   }
@@ -17,7 +19,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <RouterProvider router ={router} />
+    <ThemeProvider theme={darkTheme}>
+      <RouterProvider router ={router} />
+    </ThemeProvider>
   )
 }
 
