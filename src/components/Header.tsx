@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
 
+
 const GlobalStyle = createGlobalStyle`
 
     body{
@@ -26,7 +27,8 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-const Header = styled.header<{}>`
+
+const Header = styled.header`
     display: flex;
     justify-content: space-between;
     background-color: transparent;
