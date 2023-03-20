@@ -1,5 +1,7 @@
 import styled, { createGlobalStyle } from "styled-components";
-
+import Logo from "./Logo";
+import Profile from "./Profile";
+import SearchForm from "./SearchForm";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -27,8 +29,41 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
+const HeaderUnstyled: React.FC<{className?: string}> = ({className}) => (
+    <header className={className}>
+        <Logo className="brand active" href="/">
+            <span className="ri-home-fill"></span>
+        </Logo>
 
-const Header = styled.header`
+        <div>
+            <img src="/nekomori-logo.png" width="150" alt="anime nekomori"/>
+                {/* Formulário de pesquisa */}
+            <SearchForm action="/search" method="GET">
+                <input type="text" name="search" id="search" placeholder="Buscar por animes" required/>
+                <button type="submit" aria-label="pesquisar" className="ri-search-line"></button>
+            </SearchForm>
+            {/* Perfil */}
+            <Profile>
+                <button className="ri-alarm-fill" aria-label="agenda"></button>
+                <button className="ri-notification-2-fill" aria-label="notificações"></button>
+                <button className="user" title="joão neto" aria-label="perfil">
+                    <div className="user-img">
+                        <img src="/naruto.jpg" alt="joão neto"/>
+                    </div>
+                    {/* Opções de usuário */}
+                    <ul>
+                        <li><a href="#">Perfil</a></li>
+                        <li><a href="#">Definições</a></li>
+                        <li><a href="#">Favoritos</a></li>
+                        <li><a href="#">Sair</a></li>
+                    </ul>
+                </button>
+            </Profile>
+        </div>
+    </header>
+);
+
+const Header = styled(HeaderUnstyled)`
     display: flex;
     justify-content: space-between;
     background-color: transparent;

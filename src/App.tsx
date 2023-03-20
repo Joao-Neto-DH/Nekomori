@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Separator from "./components/Separator";
 import Layout from "./pages/Layout";
 
 const router = createBrowserRouter([
@@ -8,11 +9,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <p>Naruto Uzumaki</p>
-      },
-      {
-        path: "/naruto",
-        element: <p>Naruto Uzumaki</p>
+        element: <Separator />
       }
     ]
   }

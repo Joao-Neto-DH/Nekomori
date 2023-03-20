@@ -1,6 +1,16 @@
 import styled from "styled-components";
 
-const Navigation = styled.nav`
+const NavigationUnstyled: React.FC<{className?: string}> = ({className}) => (
+    <nav className={className}>
+        <ul>
+            <li className="active"><a href={"/"} className="ri-play-fill btn"><span aria-label="player">Reprodutor</span></a></li>
+            <li className=""><a href={"/"} className="ri-chat-3-fill btn"><span aria-label="bate-papo">Bate-Papo</span></a></li>
+            <li className=""><a href={"/"} className="ri-newspaper-fill btn"><span aria-label="notícias">Notícias</span></a></li>
+        </ul>
+    </nav>
+);
+
+const Navigation = styled(NavigationUnstyled)`
     
     background-color: #1f2531;
     height: 100%;
