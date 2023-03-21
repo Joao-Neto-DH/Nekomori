@@ -1,22 +1,29 @@
 import styled from "styled-components";
 import { ReactElement } from "react";
+import AnimeType from "../@types/AnimeType";
 
-const AnimeUnstyled: React.FC<{className?: string}> = ({className}) => (
+const AnimeUnstyled: React.FC<{
+    className?: string,
+    data: AnimeType
+}> = ({className, data}) => (
     <div className={className}>
         <div>
-            <p className="anime-producer">Tokyo TV</p>
-            <p className="anime-classification">8 Years</p>
+            <p className="anime-producer">{data.producers.length && data.producers[0].name}</p>
+            <p className="anime-classification">{data.rating}</p>
             <button className="anime-play ri-play-fill" aria-label="botão"></button>
 
             <a href="#">
-                <img src="/naruto.jpg" alt="naruto"/>
+                <img src={data.images.webp.image_url} alt={data.titles[0].title}/>
             </a>
         </div>
-        <h2><a href="#">One Piece</a></h2>
-        <p className="anime-category">Acção, comédia</p>
+        <h2><a href="#">{data.titles[0].title}</a></h2>
+        <p className="anime-category">
+            {
+                data.genres.map(genre=><a href="#" key={genre.mal_id}>{genre.name}</a>)
+            }
+        </p>
     </div>
 );
-
 
 const AnimesUnstyled: React.FC<{
     className?: string, 
@@ -79,9 +86,12 @@ h2{
     word-wrap: none;
 }
 .anime-category{
-    font-size: 0.75rem;
-    margin: 0;
-    color: rgba(${props => props.theme.colors.text});
+    a{
+        font-size: 0.75rem;
+        margin: 0;
+        margin-right: 6px;
+        color: rgba(${props => props.theme.colors.text}, 0.8);
+    }
 }
 `;
 
