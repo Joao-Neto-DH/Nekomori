@@ -79,68 +79,71 @@ const DetailsPage: React.FC<{className?: string}> = ({className}) => (
 );
 
 const Details = styled(DetailsPage)`
-h1{
-    font-size: 1.5rem !important;
-}
-h2{
-    font-size: 1.25rem;
-}
-.anime-details-header{
-    display: flex;
-    justify-content: left;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    gap: 36px;
-    img{
-        width: auto;
-        border-radius: 4px;
+    h1{
+        font-size: 1.5rem !important;
     }
-}
-ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
+    h2{
+        font-size: 1.25rem;
+    }
+    .anime-details-header{
+        display: flex;
+        justify-content: left;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        gap: 36px;
+        img{
+            width: auto;
+            border-radius: 4px;
+        }
+    }
     ul{
-        display: inline-block;
-    }
-
-    & > li{
-        margin: 8px 0;
-        font-weight: bold;
-    }
-    & > li > span{
-        font-weight: normal;
-    }
-    & > li li{
-        display: inline-block;
+        list-style: none;
+        padding: 0;
         margin: 0;
-        font-weight: normal;
-        border-left: 1px solid rgba(${props=>props.theme.colors.text}, 0.3);
-        padding: 0 8px;
+
+        ul{
+            display: inline-block;
+        }
+
+        & > li{
+            margin: 8px 0;
+            font-weight: bold;
+        }
+        & > li > span{
+            font-weight: normal;
+        }
+        & > li li{
+            display: inline-block;
+            margin: 0;
+            font-weight: normal;
+            border-left: 1px solid rgba(${props=>props.theme.colors.text}, 0.3);
+            padding: 0 8px;
+        }
+        & > li li:first-child{
+            border: none;
+            padding-left: 0;
+        }
+        a{
+            color: ${props=>props.theme.colors.terciary};
+        }
     }
-    & > li li:first-child{
+
+    ul.anime-screenshot{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        overflow: auto;
+        align-items: flex-start;
+        gap: 8px;
+
+        li{
+            cursor: pointer;
+        }
+    }
+    iframe{
         border: none;
-        padding-left: 0;
     }
-    a{
-        color: ${props=>props.theme.colors.terciary};
-    }
-}
-
-ul.anime-screenshot{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    overflow: auto;
-    align-items: flex-start;
-    gap: 8px;
-
-    li{
-        cursor: pointer;
-    }
-}
 `;
 
 export default Details
