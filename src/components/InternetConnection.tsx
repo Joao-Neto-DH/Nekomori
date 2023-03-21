@@ -16,8 +16,6 @@ const Internet: React.FC<{className?: string}> = ({className}) => {
     const [isOnline, setOnline] = useState<boolean>(true);
     
     useEffect(()=>{
-        const state = isOnline;
-
         window.addEventListener("online", ()=>{
             setOnline(true);
             setShow(true);
@@ -26,10 +24,6 @@ const Internet: React.FC<{className?: string}> = ({className}) => {
             setOnline(false);
             setShow(true);
         });
-
-        // const open = (isOnline != state);
-        // open && setShow(true);
-
     }, [show, isOnline]);
 
     return (
