@@ -12,7 +12,7 @@ const AnimeUnstyled: React.FC<{
             <p className="anime-classification">{data.rating}</p>
             <button className="anime-play ri-play-fill" aria-label="botão"></button>
 
-            <a href="#">
+            <a href={data.url}>
                 <img src={data.images.webp.image_url} alt={data.titles[0].title}/>
             </a>
         </div>
@@ -38,8 +38,8 @@ const AnimesUnstyled: React.FC<{
 const Animes = styled(AnimesUnstyled)`
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    flex-wrap: nowrap;
-    gap: 40px;
+    /* flex-wrap: nowrap; */
+    gap: 20px;
 `;
 
 
