@@ -20,12 +20,15 @@ const Internet: React.FC<{className?: string}> = ({className}) => {
 
         window.addEventListener("online", ()=>{
             setOnline(true);
+            setShow(true);
         });
         window.addEventListener("offline", ()=>{
             setOnline(false);
+            setShow(true);
         });
 
-        (isOnline != state) && setShow(true);
+        // const open = (isOnline != state);
+        // open && setShow(true);
 
     }, [show, isOnline]);
 
