@@ -5,10 +5,10 @@ import SectionContent from "../components/SectionContent";
 
 const Index = ()=>(
     <>
-        <SectionContent title="Categorias" showButton={false}>
+        <SectionContent title="Categories" showButton={false}>
             <CategoryGroup />
         </SectionContent>
-        <SectionContent title="Novidades">
+        <SectionContent title="New">
             <AnimeGroup>
                 <>
                     {

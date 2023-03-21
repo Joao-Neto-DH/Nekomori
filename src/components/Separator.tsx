@@ -2,12 +2,19 @@ import styled from "styled-components";
 
 const SeparatorUnstyled: React.FC<{
     className?: string, 
-    onClick?: ()=> void
-}> = ({className, onClick})=>(
+    onClick?: ()=> void,
+    text?: string,
+    useButton?: boolean,
+}> = ({className, onClick, text="Ver todos", useButton=true})=>(
 
     <div className={className} aria-label="separador">
         <hr/>
-        <button className="btn" onClick={onClick}>Ver todos</button>
+            {
+                useButton ? 
+                <button className="btn" onClick={onClick}>{text}</button>
+                :
+                <span>{text}</span>
+            }
         <hr/>
     </div>
 );
@@ -26,10 +33,13 @@ const Separator = styled(SeparatorUnstyled)`
         /* align-self: flex-start; */
     }
     button{
-        border: 1px solid var(--terciary);
+        /* border: 1px solid var(--terciary); */
         padding: 6px 24px;
         margin: 0 auto;
         font-size: .75rem;
+    }
+    span{
+        padding: 0 8px;
     }
 `;
 
