@@ -20,9 +20,8 @@ const AnimeUnstyled: React.FC<{className?: string}> = ({className}) => (
 
 const AnimesUnstyled: React.FC<{
     className?: string, 
-    children: ReactElement, 
-    row?: boolean
-}> = ({className, children, row = false}) => (
+    children: ReactElement,
+}> = ({className, children}) => (
 
     <div className={className} >
         { children }

@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
-const SeparatorUnstyled: React.FC<{className?: string}> = ({className})=>(
+const SeparatorUnstyled: React.FC<{
+    className?: string, 
+    onClick?: ()=> void
+}> = ({className, onClick})=>(
+
     <div className={className} aria-label="separador">
         <hr/>
-        <button className="btn">Ver todos</button>
+        <button className="btn" onClick={onClick}>Ver todos</button>
         <hr/>
     </div>
 );

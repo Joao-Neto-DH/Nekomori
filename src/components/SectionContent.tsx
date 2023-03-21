@@ -1,17 +1,24 @@
 import { ReactElement } from "react";
 import styled from "styled-components";
-import Anime from "./Anime";
 
-const SectionContentUnstyled: React.FC<{className?: string, children: ReactElement}> = ({className, children}) => (
+const SectionContentUnstyled: React.FC<{
+    className?: string, 
+    children: ReactElement,
+    title: string,
+    showButton?: boolean
+}> = ({className, children, title, showButton = true}) => (
     <section className={className}>
         <header>
             <h1>
-                Novidades
+                {title}
             </h1>
-            <div>
-                <button className="btn ri-arrow-drop-left-line" aria-label="próxima lista de animes"></button>
-                <button className="btn ri-arrow-drop-right-line" aria-label="anterior lista de animes"></button>
-            </div>
+            {
+                showButton &&
+                <div>
+                    <button className="btn ri-arrow-drop-left-line" aria-label="próxima lista de animes"></button>
+                    <button className="btn ri-arrow-drop-right-line" aria-label="anterior lista de animes"></button>
+                </div>
+            }
         </header>
 
         { children }
