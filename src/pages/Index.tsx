@@ -30,19 +30,14 @@ const Index = ()=> {
             </SectionContent>
 
             <SectionContent title="New">
-                <AnimeGroup>
-                    <>
-                        {
-                            response && response.data.map(anime=>{
-                                const data = anime as AnimeType;
-                                return (<Anime data={data} key={data.mal_id}/>)
-                            })
-                        }
-                    </>
-                </AnimeGroup>
+                <>
+                    {
+                        response?.data && <AnimeGroup animes={response?.data as AnimeType[]}/>
+                    }
+                </>
             </SectionContent>
             {
-                response?.pagination && <Pagination pagination={response.pagination as any}/>
+                response?.pagination && <Pagination pagination={{current_page: 0, ...response.pagination}}/>
             }
         </>
     );

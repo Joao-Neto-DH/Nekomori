@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import SectionContent from "../components/SectionContent";
 import Separator from "../components/Separator";
@@ -14,10 +15,10 @@ const DetailsPage: React.FC<{className?: string}> = ({className}) => (
                     <li>
                         <span>Genres: </span>
                         <ul>
-                            <li><a href="https://myanimelist.net/anime/genre/1/Action">Action</a></li>
-                            <li><a href="https://myanimelist.net/anime/genre/2/Adventure">Adventure</a></li>
-                            <li><a href="https://myanimelist.net/anime/genre/10/Fantasy">Fantasy</a></li>
-                            <li><a href="https://myanimelist.net/anime/genre/10/Fantasy">Fantasy</a></li>
+                            <li><Link to={"https://myanimelist.net/anime/genre/1/Action"}>Action</Link></li>
+                            <li><Link to={"https://myanimelist.net/anime/genre/2/Adventure"}>Adventure</Link></li>
+                            <li><Link to={"https://myanimelist.net/anime/genre/10/Fantasy"}>Fantasy</Link></li>
+                            <li><Link to={"https://myanimelist.net/anime/genre/10/Fantasy"}>Fantasy</Link></li>
                         </ul>
                     </li>
                     <li><span>Score: </span>6.91</li>
@@ -28,7 +29,7 @@ const DetailsPage: React.FC<{className?: string}> = ({className}) => (
                     <li>
                         <span>Studios: </span>
                         <ul>
-                            <li><a href="https://myanimelist.net/anime/producer/1/Pierrot" target="_blank">Pierrot</a></li>
+                            <li><Link to={"https://myanimelist.net/anime/producer/1/Pierrot"} target="_blank">Pierrot</Link></li>
                         </ul>
                     </li>
                     <li className="separator">
@@ -36,9 +37,9 @@ const DetailsPage: React.FC<{className?: string}> = ({className}) => (
                     </li>
                     <li>
                         <ul>
-                            <li><a href="#synopsis" className="btn">Synopsis</a></li>
-                            <li><a href="#screenshots" className="btn">Screenshots</a></li>
-                            <li><a href="#trailer" className="btn">Trailer</a></li>
+                            <li><Link to={"#synopsis"} className="btn">Synopsis</Link></li>
+                            <li><Link to={"#screenshots"} className="btn">Screenshots</Link></li>
+                            <li><Link to={"#trailer"} className="btn">Trailer</Link></li>
                         </ul>
                     </li>
                 </ul>

@@ -1,4 +1,5 @@
 import { JakanPagination } from "jakan";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const PaginationUnstyled: React.FC<{
@@ -7,11 +8,11 @@ const PaginationUnstyled: React.FC<{
 }> = ({className, pagination}) => (
     <div className={className}>
         {
-            pagination.current_page != 1 && <a href={`?page=${pagination.current_page-1}`} className="ri-arrow-left-line" ></a>
+            pagination.current_page != 1 && <Link to={`?page=${pagination.current_page-1}`} className="ri-arrow-left-line" ></Link>
         }
         <span>{pagination.current_page || 1}</span>
         {
-            pagination.has_next_page && <a href={`?page=${(pagination.current_page+1) || 2}`} className="ri-arrow-right-line"></a>
+            pagination.has_next_page && <Link to={`?page=${(pagination.current_page+1) || 2}`} className="ri-arrow-right-line"></Link>
         }
     </div>
 );

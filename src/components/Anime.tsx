@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { ReactElement } from "react";
+// import { ReactElement } from "react";
 import AnimeType from "../@types/AnimeType";
+import { Link } from "react-router-dom";
 
 const AnimeUnstyled: React.FC<{
     className?: string,
@@ -12,14 +13,14 @@ const AnimeUnstyled: React.FC<{
             <p className="anime-classification">{data.rating}</p>
             <button className="anime-play ri-play-fill" aria-label="botão"></button>
 
-            <a href={data.url}>
+            <Link to={data.url}>
                 <img src={data.images.webp.image_url} alt={data.titles[0].title}/>
-            </a>
+            </Link>
         </div>
-        <h2><a href="#">{data.titles[0].title}</a></h2>
+        <h2><Link to={"#"}>{data.titles[0].title}</Link></h2>
         <p className="anime-category">
             {
-                data.genres.map(genre=><a href="#" key={genre.mal_id}>{genre.name}</a>)
+                data.genres.map(genre=><Link to={"#"} key={genre.mal_id}>{genre.name}</Link>)
             }
         </p>
     </div>
@@ -27,11 +28,13 @@ const AnimeUnstyled: React.FC<{
 
 const AnimesUnstyled: React.FC<{
     className?: string, 
-    children: ReactElement,
-}> = ({className, children}) => (
+    animes: AnimeType[]
+}> = ({className, animes}) => (
 
     <div className={className} >
-        { children }
+        { 
+            animes.map(anime=><Anime key={anime.mal_id} data={anime} />)
+        }
     </div>
 );
 
