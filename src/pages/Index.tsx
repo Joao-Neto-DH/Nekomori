@@ -1,8 +1,8 @@
 import { Jakan, JakanQueryResponse } from "jakan";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import AnimeType from "../@types/AnimeType";
-import Anime, { AnimeGroup } from "../components/Anime";
+import { AnimeGroup } from "../components/Anime";
 import CategoryGroup from "../components/CategoryGroup";
 import Pagination from "../components/Pagination";
 import SectionContent from "../components/SectionContent";
@@ -11,17 +11,21 @@ import SectionContent from "../components/SectionContent";
 const Index = ()=> {
     const [response, setResponse] = useState<JakanQueryResponse>();
     const [params] = useSearchParams();
-    
+    const clearResponse = useCallback(()=>setResponse(undefined),[]);
+
+    // response && console.log(response.pagination)
 
     useEffect(()=>{
-        const misc = new Jakan().withMemory(5000).forSearch();
-        misc.anime({
+        if(response) return;
+
+        const search = new Jakan().withMemory().forSearch();
+        search.anime({
             q: "",
-            page: (params.get("page") as any)|| 1
+            page: (params.get("page") as any)|| 1,
         })
         .then(res=>setResponse(res))
         .catch(err=>console.log(err))
-    },[]);
+    },[response]);
     
     return(
         <>
@@ -37,7 +41,7 @@ const Index = ()=> {
                 </>
             </SectionContent>
             {
-                response?.pagination && <Pagination pagination={{current_page: 0, ...response.pagination}}/>
+                response?.pagination && <Pagination clearFunction={clearResponse} pagination={{current_page: 0, ...response.pagination}}/>
             }
         </>
     );

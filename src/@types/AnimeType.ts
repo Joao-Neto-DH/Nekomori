@@ -1,18 +1,9 @@
+import Image from "./Image"
+
 type AnimeType = {
     "mal_id": number,
     "url": string,
-    "images": {
-        "jpg": {
-            "image_url": string,
-            "small_image_url": string,
-            "large_image_url": string
-        },
-        "webp": {
-            "image_url": string,
-            "small_image_url": string,
-            "large_image_url": string
-        }
-    },
+    "images": Image,
     "trailer": {
         "youtube_id": string,
         "url": string,

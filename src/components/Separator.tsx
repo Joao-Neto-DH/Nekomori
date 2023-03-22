@@ -5,9 +5,9 @@ const SeparatorUnstyled: React.FC<{
     onClick?: ()=> void,
     text?: string,
     useButton?: boolean,
-}> = ({className, onClick, text="Ver todos", useButton=true})=>(
+}> = ({className, onClick, text="See all", useButton=true})=>(
 
-    <div className={className} aria-label="separador">
+    <div className={className} aria-label="separator">
         <hr/>
             {
                 useButton ? 
@@ -23,8 +23,7 @@ const Separator = styled(SeparatorUnstyled)`
     display: flex;
     flex-wrap: nowrap;
     padding: 10px;
-    /* flex-direction: row; */
-    align-items: center;
+    align-items: center !important;
 
     hr{
         width: 44%;
@@ -33,7 +32,7 @@ const Separator = styled(SeparatorUnstyled)`
         /* align-self: flex-start; */
     }
     button{
-        /* border: 1px solid var(--terciary); */
+        border: 1px solid ${props=>props.theme.colors.terciary};
         padding: 6px 24px;
         margin: 0 auto;
         font-size: .75rem;

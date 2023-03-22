@@ -15,7 +15,7 @@ const router = createBrowserRouter([
         element: <Index />
       },
       {
-        path: "animes/naruto/details",
+        path: ":id/:title",
         element: <Details/>
       }
     ]

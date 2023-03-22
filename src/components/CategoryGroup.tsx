@@ -27,7 +27,7 @@ const Category: React.FC<{
                     genres.map(genre=>(<Link to={genre.url} target={"_blank"} key={genre.mal_id}>{genre.name}</Link>))
                 }
             </div>
-            <Separator onClick={()=>setSeeAll(!seeAll)}/>
+            <Separator onClick={()=>setSeeAll(!seeAll)} text={seeAll? "Hide":undefined}/>
         </div>
     );
 }
