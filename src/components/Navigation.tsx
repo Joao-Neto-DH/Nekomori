@@ -1,11 +1,12 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const NavigationUnstyled: React.FC<{className?: string}> = ({className}) => (
     <nav className={className}>
         <ul>
-            <li className="active"><a href={"/"} className="ri-play-fill btn"><span aria-label="player">Reprodutor</span></a></li>
-            <li className=""><a href={"/"} className="ri-chat-3-fill btn"><span aria-label="bate-papo">Bate-Papo</span></a></li>
-            <li className=""><a href={"/"} className="ri-newspaper-fill btn"><span aria-label="notícias">Notícias</span></a></li>
+            <li><NavLink to={"/"} className={props=>`${props.isActive && "active"} ri-play-fill btn`}><span aria-label="player">Reprodutor</span></NavLink></li>
+            <li><NavLink to={"/"} className={props=>`${props.isActive && "active"} ri-chat-3-fill btn`}><span aria-label="bate-papo">Bate-Papo</span></NavLink></li>
+            <li><NavLink to={"/"} className={props=>`${props.isActive && "active"} ri-newspaper-fill btn`}><span aria-label="notícias">Notícias</span></NavLink></li>
         </ul>
     </nav>
 );
@@ -61,13 +62,10 @@ const Navigation = styled(NavigationUnstyled)`
         padding: 30px 18px;
         opacity: 0.6;
     }
-    .brand, .active{
-        position: relative;
-    }
-    li:hover > a, .active > a{
+    li:hover > a, a.active{
         opacity: 1;
     }
-    .active::before{
+    .active::after{
         content: '';
         height: 60%;
         width: 6px;
