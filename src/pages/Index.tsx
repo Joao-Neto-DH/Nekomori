@@ -1,6 +1,5 @@
 import { Jakan, JakanQueryResponse } from "jakan";
 import { useCallback, useEffect, useState } from "react";
-import { Dna } from "react-loader-spinner";
 import { useSearchParams } from "react-router-dom";
 import AnimeType from "../@types/AnimeType";
 import { AnimeGroup } from "../components/Anime";
@@ -26,7 +25,7 @@ const Index = ()=> {
             page: (params.get("page") as any)|| 1,
         })
         .then(res=>setResponse(res))
-        .catch(err=>console.log(err))
+        .catch(err=>console.log(err));
     },[response]);
     
     return(

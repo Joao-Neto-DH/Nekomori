@@ -50,7 +50,7 @@ const DetailsPage: React.FC<{className?: string}> = ({className}) => {
                         </li>
                         <li><span>Score: </span>{data?.score}</li>
                         <li><span>Scored by: </span>{data?.scored_by && Math.floor(data.scored_by / 1000)}k</li>
-                        <li><span>Since: </span>{`${data?.aired.prop.from.day}-${data?.aired.prop.from.month}-${data?.aired.prop.from.year}`}</li>
+                        <li><span>Since: </span>{data && `${data?.aired.prop.from.day.toString().padStart(2, "0")}-${data?.aired.prop.from.month.toString().padStart(2, "0")}-${data?.aired.prop.from.year}`}</li>
                         <li><span>Duration: </span>{data?.duration}</li>
                         {
                             data?.type === "TV" && <li><span>Episodes: </span>{data?.episodes}</li>
