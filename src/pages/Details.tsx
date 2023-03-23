@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import AnimeType from "../@types/AnimeType";
 import Image from "../@types/Image";
+import LoaderIndicator from "../components/LoaderIndicator";
 import SectionContent from "../components/SectionContent";
 import Separator from "../components/Separator";
 
@@ -30,7 +31,11 @@ const DetailsPage: React.FC<{className?: string}> = ({className}) => {
         <SectionContent className={className} showButton={false} title={params.title || ""}>
             <div>
                 <div className="anime-details-header">
-                    <img src={data && data.images.webp.large_image_url} alt={params.title}/>
+                    <LoaderIndicator visible={!data} />
+                    {
+
+                        data && <img src={data.images.webp.large_image_url} alt={params.title}/>
+                    }
                     <ul className="anime-info">
                         <li><span>English title: </span>{params.title}</li>
                         <li><span>Japanese title: </span>{data?.titles.filter(anime=>anime.type === "Japanese").at(0)?.title}</li>
@@ -78,6 +83,7 @@ const DetailsPage: React.FC<{className?: string}> = ({className}) => {
 
                 <h2 id="screenshots">Screenshots</h2>
                 <ul className="anime-screenshot">
+                    <LoaderIndicator visible={!pictures} />
                     {
                         pictures && pictures.map((img, idx)=><li key={idx}><img src={img.webp.image_url} alt={params.title} data-target="slide"/></li>)
                     }

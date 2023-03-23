@@ -1,9 +1,11 @@
 import { Jakan, JakanQueryResponse } from "jakan";
 import { useCallback, useEffect, useState } from "react";
+import { Dna } from "react-loader-spinner";
 import { useSearchParams } from "react-router-dom";
 import AnimeType from "../@types/AnimeType";
 import { AnimeGroup } from "../components/Anime";
 import CategoryGroup from "../components/CategoryGroup";
+import LoaderIndicator from "../components/LoaderIndicator";
 import Pagination from "../components/Pagination";
 import SectionContent from "../components/SectionContent";
 
@@ -35,6 +37,7 @@ const Index = ()=> {
 
             <SectionContent title="New">
                 <>
+                        <LoaderIndicator visible={!response}/>
                     {
                         response?.data && <AnimeGroup animes={response?.data as AnimeType[]}/>
                     }
