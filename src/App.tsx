@@ -3,6 +3,7 @@ import { ThemeProvider } from "styled-components";
 import Details from "./pages/Details";
 import Index from "./pages/Index";
 import Layout from "./pages/Layout";
+import Search from "./pages/Search";
 import { darkTheme } from "./themes/dark-theme";
 
 const router = createBrowserRouter([
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: ":id/:title",
         element: <Details/>
+      },
+      {
+        path: "search",
+        element: <Search/>
       }
     ]
   }
