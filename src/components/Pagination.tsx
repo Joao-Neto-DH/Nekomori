@@ -12,7 +12,7 @@ const PaginationUnstyled: React.FC<{
             pagination.current_page > 2 && <Link to={"/?page=1"} onClick={clearFunction}>First</Link>
         }
         {
-            pagination.current_page != 1 && <Link to={`/?page=${pagination.current_page-1}`} onClick={clearFunction} className="ri-arrow-left-line" ></Link>
+            pagination.current_page != 1 && <Link to={`/?page=${pagination.current_page-1}`} onClick={clearFunction} aria-label="previous page" className="ri-arrow-left-line" ></Link>
         }
         {
             pagination.current_page - 3 > 0 && 
@@ -32,7 +32,7 @@ const PaginationUnstyled: React.FC<{
                     </Link>)
         }
         {
-            pagination.has_next_page && <Link to={`/?page=${(pagination.current_page+1) || 2}`} onClick={clearFunction} className="ri-arrow-right-line"></Link>
+            pagination.has_next_page && <Link to={`/?page=${(pagination.current_page+1) || 2}`} onClick={clearFunction} aria-label="next page" className="ri-arrow-right-line"></Link>
         }
         {
             pagination.has_next_page && <Link to={`/?page=${(pagination.last_visible_page)}`} onClick={clearFunction}>Last</Link>
