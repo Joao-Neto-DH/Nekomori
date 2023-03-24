@@ -13,12 +13,12 @@ const AnimeUnstyled: React.FC<{
             <p className="anime-classification">{data.rating}</p>
             <button className="anime-play ri-play-fill" aria-label="botão"></button>
 
-            <Link to={`/${data.mal_id}/${data.titles.filter(anime=>anime.type === "Default").at(0)?.title}`}>
+            <Link to={`/${data.mal_id}/${encodeURIComponent(data.titles.filter(anime=>anime.type === "Default").at(0)?.title || "")}`}>
                 <img src={data.images.webp.image_url} alt={data.titles[0].title}/>
             </Link>
         </div>
         <h2>
-            <Link to={`/${data.mal_id}/${data.titles.filter(anime=>anime.type === "Default").at(0)?.title}`}>{data.titles[0].title}</Link>
+            <Link to={`/${data.mal_id}/${encodeURIComponent(data.titles.filter(anime=>anime.type === "Default").at(0)?.title || "")}`}>{data.titles[0].title}</Link>
         </h2>
         <p className="anime-category">
             {
