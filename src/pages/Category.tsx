@@ -1,7 +1,7 @@
-import { AnimeType } from "@tutkli/jikan-ts";
 import { JakanQueryResponse, Jakan } from "jakan";
 import { useState, useCallback, useEffect } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
+import AnimeType from "../@types/AnimeType";
 import { AnimeGroup } from "../components/Anime";
 import CategoryGroup from "../components/CategoryGroup";
 import LoaderIndicator from "../components/LoaderIndicator";
@@ -37,7 +37,7 @@ const Category = () => {
                 <>
                         <LoaderIndicator visible={!response}/>
                     {
-                        response?.data && <AnimeGroup animes={response?.data as any}/>
+                        response?.data && <AnimeGroup animes={response?.data as AnimeType[]}/>
                     }
                 </>
             </SectionContent>

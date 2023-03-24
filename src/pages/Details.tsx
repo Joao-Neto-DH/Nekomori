@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import AnimeType from "../@types/AnimeType";
 import Image from "../@types/Image";
+import CategoryGroup from "../components/CategoryGroup";
 import LoaderIndicator from "../components/LoaderIndicator";
 import SectionContent from "../components/SectionContent";
 import Separator from "../components/Separator";
@@ -28,78 +29,83 @@ const DetailsPage: React.FC<{className?: string}> = ({className}) => {
     },[]);
 
     return(
-        <SectionContent className={className} showButton={false} title={params.title || ""}>
-            <div>
-                <div className="anime-details-header">
-                    <LoaderIndicator visible={!data} />
-                    {
-
-                        data && <img src={data.images.webp.large_image_url} alt={params.title}/>
-                    }
-                    <ul className="anime-info">
-                        <li><span>English title: </span>{params.title}</li>
-                        <li><span>Japanese title: </span>{data?.titles.filter(anime=>anime.type === "Japanese").at(0)?.title}</li>
-                        <li><span>Type: </span>{data?.type}</li>
-                        <li>
-                            <span>Genres: </span>
-                            <ul>
-                                {
-                                    data?.genres.map(genre=><li key={genre.mal_id}><Link to={`/category/${genre.mal_id}/${genre.name}`}>{genre.name}</Link></li>)
-                                }
-                            </ul>
-                        </li>
-                        <li><span>Score: </span>{data?.score}</li>
-                        <li><span>Scored by: </span>{data?.scored_by && Math.floor(data.scored_by / 1000)}k</li>
-                        <li><span>Since: </span>{data && `${data?.aired.prop.from.day.toString().padStart(2, "0")}-${data?.aired.prop.from.month.toString().padStart(2, "0")}-${data?.aired.prop.from.year}`}</li>
-                        <li><span>Duration: </span>{data?.duration}</li>
+        <>
+            <SectionContent title="Categories" showButton={false} >
+                <CategoryGroup />
+            </SectionContent>
+            <SectionContent className={className} showButton={false} title={params.title || ""}>
+                <div>
+                    <div className="anime-details-header">
+                        <LoaderIndicator visible={!data} />
                         {
-                            data?.type === "TV" && <li><span>Episodes: </span>{data?.episodes}</li>
+
+                            data && <img src={data.images.webp.large_image_url} alt={params.title}/>
                         }
-                        <li><span>Rating: </span>{data?.rating}</li>
-                        <li>
-                            <span>Studios: </span>
-                            <ul>
-                                {
-                                    data?.studios.map(studio=><li key={studio.mal_id}><Link to={studio.url} target="_blank">{studio.name}</Link></li>)
-                                }
-                            </ul>
-                        </li>
-                        <li className="separator">
-                            <Separator useButton={false} text="Others"/>
-                        </li>
-                        <li>
-                            <ul>
-                                <li><a href={"#synopsis"} className="btn">Synopsis</a></li>
-                                <li><a href={"#screenshots"} className="btn">Screenshots</a></li>
-                                <li><a href={"#trailer"} className="btn">Trailer</a></li>
-                            </ul>
-                        </li>
+                        <ul className="anime-info">
+                            <li><span>English title: </span>{params.title}</li>
+                            <li><span>Japanese title: </span>{data?.titles.filter(anime=>anime.type === "Japanese").at(0)?.title}</li>
+                            <li><span>Type: </span>{data?.type}</li>
+                            <li>
+                                <span>Genres: </span>
+                                <ul>
+                                    {
+                                        data?.genres.map(genre=><li key={genre.mal_id}><Link to={`/category/${genre.mal_id}/${genre.name}`}>{genre.name}</Link></li>)
+                                    }
+                                </ul>
+                            </li>
+                            <li><span>Score: </span>{data?.score}</li>
+                            <li><span>Scored by: </span>{data?.scored_by && Math.floor(data.scored_by / 1000)}k</li>
+                            <li><span>Since: </span>{data && `${data?.aired.prop.from.day.toString().padStart(2, "0")}-${data?.aired.prop.from.month.toString().padStart(2, "0")}-${data?.aired.prop.from.year}`}</li>
+                            <li><span>Duration: </span>{data?.duration}</li>
+                            {
+                                data?.type === "TV" && <li><span>Episodes: </span>{data?.episodes}</li>
+                            }
+                            <li><span>Rating: </span>{data?.rating}</li>
+                            <li>
+                                <span>Studios: </span>
+                                <ul>
+                                    {
+                                        data?.studios.map(studio=><li key={studio.mal_id}><Link to={studio.url} target="_blank">{studio.name}</Link></li>)
+                                    }
+                                </ul>
+                            </li>
+                            <li className="separator">
+                                <Separator useButton={false} text="Others"/>
+                            </li>
+                            <li>
+                                <ul>
+                                    <li><a href={"#synopsis"} className="btn">Synopsis</a></li>
+                                    <li><a href={"#screenshots"} className="btn">Screenshots</a></li>
+                                    <li><a href={"#trailer"} className="btn">Trailer</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 id="synopsis">Synopsis</h2>
+                    <p>{data?.synopsis}</p>
+
+                    <Separator useButton={false} text="" />
+
+                    <h2 id="screenshots">Screenshots</h2>
+                    <ul className="anime-screenshot">
+                        <LoaderIndicator visible={!pictures} />
+                        {
+                            pictures && pictures.map((img, idx)=><li key={idx}><img src={img.webp.image_url} alt={params.title} data-target="slide"/></li>)
+                        }
                     </ul>
-                </div>
-                <h2 id="synopsis">Synopsis</h2>
-                <p>{data?.synopsis}</p>
 
-                <Separator useButton={false} text="" />
+                    <Separator useButton={false} text="" />
 
-                <h2 id="screenshots">Screenshots</h2>
-                <ul className="anime-screenshot">
-                    <LoaderIndicator visible={!pictures} />
+                    <h2 id="trailer">Trailer</h2>
                     {
-                        pictures && pictures.map((img, idx)=><li key={idx}><img src={img.webp.image_url} alt={params.title} data-target="slide"/></li>)
+                        data?.trailer ? 
+                            <iframe src={data.trailer.embed_url} style={{width: "100%", height: "70vh"}}></iframe>
+                            :
+                            <h3>No Trailer to see</h3>
                     }
-                </ul>
-
-                <Separator useButton={false} text="" />
-
-                <h2 id="trailer">Trailer</h2>
-                {
-                    data?.trailer ? 
-                        <iframe src={data.trailer.embed_url} style={{width: "100%", height: "70vh"}}></iframe>
-                        :
-                        <h3>No Trailer to see</h3>
-                }
-            </div>
-        </SectionContent>
+                </div>
+            </SectionContent>
+        </>
     );
 }
 
