@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom"
 import Header from "../components/Header"
-import MainArea from "../components/Container"
+import Container from "../components/Container"
 import GlobalStyle from "../components/GlobalStyle"
 import InternetConnection from "../components/InternetConnection"
 
@@ -9,9 +9,9 @@ const Layout: React.FC<{}> = () => {
       <>
         <GlobalStyle />
         <Header />
-        <MainArea>
+        <Container>
           <Outlet/>
-        </MainArea>
+        </Container>
         <InternetConnection />
       </>
     )

@@ -13,7 +13,7 @@ const ContainerUnstyled: React.FC<{className?: string, children: ReactElement}> 
 );
 
 const Container = styled(ContainerUnstyled)`
-    height: calc(100vh - 82px);/* 82px tamanho do cabeçalho */
+    height: calc(100vh - 77px);/* 82px tamanho do cabeçalho */
     display: flex;
     justify-content: space-between;
     align-items: stretch;

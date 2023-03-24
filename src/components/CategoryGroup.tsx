@@ -7,8 +7,9 @@ import Separator from "./Separator";
 
 const Category: React.FC<{
     className?: string,
+    clearFunction?: ()=> void
 
-}> = ({className}) => {
+}> = ({className, clearFunction}) => {
     const [seeAll, setSeeAll] = useState(false);
     const [genres, setGenres] = useState<Array<Genre>>([]);
 
@@ -24,7 +25,7 @@ const Category: React.FC<{
         <div className={className}>
             <div style={{flexWrap: seeAll ? "wrap" : "nowrap"}}>
                 {
-                    genres.map(genre=>(<Link to={genre.url} target={"_blank"} key={genre.mal_id}>{genre.name}</Link>))
+                    genres.map(genre=>(<Link to={`/category/${genre.mal_id}/${genre.name}`} onClick={clearFunction} key={genre.mal_id}>{genre.name}</Link>))
                 }
             </div>
             <Separator onClick={()=>setSeeAll(!seeAll)} text={seeAll? "Hide":undefined}/>

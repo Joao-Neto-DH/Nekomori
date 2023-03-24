@@ -21,6 +21,7 @@ const SearchUnstyled: React.FC<{}> = ()=>{
         search.anime({
             q: params.get("q") || "",
             page: (params.get("page") as any) || 1,
+            sfw: false
         })
         .then(res=>setResponse(res))
         .catch(err=>console.log(err))

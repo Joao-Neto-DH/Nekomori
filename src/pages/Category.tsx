@@ -1,17 +1,17 @@
-import { Jakan, JakanQueryResponse } from "jakan";
-import { useCallback, useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import AnimeType from "../@types/AnimeType";
+import { AnimeType } from "@tutkli/jikan-ts";
+import { JakanQueryResponse, Jakan } from "jakan";
+import { useState, useCallback, useEffect } from "react";
+import { useParams, useSearchParams } from "react-router-dom";
 import { AnimeGroup } from "../components/Anime";
 import CategoryGroup from "../components/CategoryGroup";
 import LoaderIndicator from "../components/LoaderIndicator";
 import Pagination from "../components/Pagination";
 import SectionContent from "../components/SectionContent";
 
-
-const Index = ()=> {
+const Category = () => {
     const [response, setResponse] = useState<JakanQueryResponse>();
     const [params] = useSearchParams();
+    const routeParams = useParams();
     const clearResponse = useCallback(()=>setResponse(undefined),[]);
 
     useEffect(()=>{
@@ -20,9 +20,8 @@ const Index = ()=> {
         const search = new Jakan().withMemory().forSearch();
         search.anime({
             q: "",
-            page: (params.get("page") as any)|| 1,
-            sfw: false
-            // genres: "action"
+            page: (params.get("page") as any) || 1,
+            genres: routeParams.id
         })
         .then(res=>setResponse(res))
         .catch(err=>console.log(err));
@@ -31,14 +30,14 @@ const Index = ()=> {
     return(
         <>
             <SectionContent title="Categories" showButton={false}>
-                <CategoryGroup />
+                <CategoryGroup clearFunction={clearResponse}/>
             </SectionContent>
 
-            <SectionContent title="New">
+            <SectionContent title={routeParams.category || ""}>
                 <>
                         <LoaderIndicator visible={!response}/>
                     {
-                        response?.data && <AnimeGroup animes={response?.data as AnimeType[]}/>
+                        response?.data && <AnimeGroup animes={response?.data as any}/>
                     }
                 </>
             </SectionContent>
@@ -49,4 +48,4 @@ const Index = ()=> {
     );
 }
 
-export default Index;
+export default Category;

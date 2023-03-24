@@ -44,7 +44,7 @@ const DetailsPage: React.FC<{className?: string}> = ({className}) => {
                             <span>Genres: </span>
                             <ul>
                                 {
-                                    data?.genres.map(genre=><li key={genre.mal_id}><Link to={genre.url}>{genre.name}</Link></li>)
+                                    data?.genres.map(genre=><li key={genre.mal_id}><Link to={`/category/${genre.mal_id}/${genre.name}`}>{genre.name}</Link></li>)
                                 }
                             </ul>
                         </li>

@@ -41,6 +41,7 @@ const AnimesUnstyled: React.FC<{
 );
 
 const Animes = styled(AnimesUnstyled)`
+    max-width: 100%;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     /* flex-wrap: nowrap; */
@@ -91,6 +92,11 @@ h2{
     word-wrap: none;
 }
 .anime-category{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
     a{
         font-size: 0.75rem;
         margin: 0;
