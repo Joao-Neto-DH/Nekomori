@@ -8,6 +8,11 @@ import CategoryGroup from "../components/CategoryGroup";
 import LoaderIndicator from "../components/LoaderIndicator";
 import SectionContent from "../components/SectionContent";
 import Separator from "../components/Separator";
+import mediaQuery from "../util/mediaQuery";
+
+function scored(score: number): string{
+    return score < 1000 ? score.toString() : `${score}k`;
+}
 
 const DetailsPage: React.FC<{className?: string}> = ({className}) => {
     const [data, setData] = useState<AnimeType>();
@@ -38,7 +43,6 @@ const DetailsPage: React.FC<{className?: string}> = ({className}) => {
                     <div className="anime-details-header">
                         <LoaderIndicator visible={!data} />
                         {
-
                             data && <img src={data.images.webp.large_image_url} alt={params.title}/>
                         }
                         <ul className="anime-info">
@@ -54,7 +58,7 @@ const DetailsPage: React.FC<{className?: string}> = ({className}) => {
                                 </ul>
                             </li>
                             <li><span>Score: </span>{data?.score}</li>
-                            <li><span>Scored by: </span>{data?.scored_by && Math.floor(data.scored_by / 1000)}k</li>
+                            <li><span>Scored by: </span>{scored(data?.scored_by && Math.floor(data.scored_by / 1000))}</li>
                             <li><span>Since: </span>{data && `${data?.aired.prop.from.day.toString().padStart(2, "0")}-${data?.aired.prop.from.month.toString().padStart(2, "0")}-${data?.aired.prop.from.year}`}</li>
                             <li><span>Duration: </span>{data?.duration}</li>
                             {
@@ -119,7 +123,7 @@ const Details = styled(DetailsPage)`
     .anime-details-header{
         display: flex;
         justify-content: left;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
         align-content: flex-start;
         gap: 36px;
@@ -129,6 +133,7 @@ const Details = styled(DetailsPage)`
         }
     }
     ul{
+        width: auto;
         list-style: none;
         padding: 0;
         margin: 0;
@@ -174,6 +179,12 @@ const Details = styled(DetailsPage)`
     }
     iframe{
         border: none;
+    }
+
+    @media screen and (min-width: ${mediaQuery.tablet}px){
+        .anime-details-header{
+            flex-direction: row;
+        }
     }
 `;
 

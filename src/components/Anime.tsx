@@ -2,6 +2,7 @@ import styled from "styled-components";
 // import { ReactElement } from "react";
 import AnimeType from "../@types/AnimeType";
 import { Link } from "react-router-dom";
+import mediaQuery from "../util/mediaQuery";
 
 const AnimeUnstyled: React.FC<{
     className?: string,
@@ -43,9 +44,18 @@ const AnimesUnstyled: React.FC<{
 const Animes = styled(AnimesUnstyled)`
     max-width: 100%;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     /* flex-wrap: nowrap; */
     gap: 20px;
+    @media screen and (min-width: ${mediaQuery.smallTablet}px){
+        grid-template-columns: repeat(3, 1fr);        
+    }
+    @media screen and (min-width: ${mediaQuery.tablet}px){
+        grid-template-columns: repeat(4, 1fr);        
+    }
+    @media screen and (min-width: ${mediaQuery.smallDesktop}px){
+        grid-template-columns: repeat(5, 1fr);        
+    }
 `;
 
 

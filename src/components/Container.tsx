@@ -1,5 +1,6 @@
 import { ReactElement } from "react";
 import styled from "styled-components";
+import mediaQuery from "../util/mediaQuery";
 import Navigation from "./Navigation";
 
 const ContainerUnstyled: React.FC<{className?: string, children: ReactElement}> = ({className, children}) => (
@@ -19,9 +20,16 @@ const Container = styled(ContainerUnstyled)`
     align-items: stretch;
 
     main{
-        width: calc(100% - 48px);
+        width: 100%;
+        /* width: calc(100% - 48px); */
         overflow: auto;
-        padding: 20px;
+        padding: 10px;
+    }
+
+    @media screen and (min-width: ${mediaQuery.tablet}px) {
+        main{
+            padding: 0 20px;
+        }
     }
 `;
 
