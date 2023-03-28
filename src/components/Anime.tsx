@@ -12,14 +12,14 @@ const AnimeUnstyled: React.FC<{
         <div>
             <p className="anime-producer">{data.producers.length && data.producers[0].name}</p>
             <p className="anime-classification">{data.rating}</p>
-            <button className="anime-play ri-play-fill" aria-label="botão"></button>
+            <span className="anime-play">{data.score}</span>
 
-            <Link to={`/${data.mal_id}/${encodeURIComponent(data.titles.filter(anime=>anime.type === "Default").at(0)?.title || "")}`}>
+            <Link to={`/${data.mal_id}/${encodeURIComponent(data.titles.filter(anime=>anime.type === "Default").at(0)?.title || "")}/details`}>
                 <img src={data.images.webp.image_url} alt={data.titles[0].title}/>
             </Link>
         </div>
         <h2>
-            <Link to={`/${data.mal_id}/${encodeURIComponent(data.titles.filter(anime=>anime.type === "Default").at(0)?.title || "")}`}>{data.titles[0].title}</Link>
+            <Link to={`/${data.mal_id}/${encodeURIComponent(data.titles.filter(anime=>anime.type === "Default").at(0)?.title || "")}/details`}>{data.titles[0].title}</Link>
         </h2>
         <p className="anime-category">
             {

@@ -24,17 +24,17 @@ const PaginationUnstyled: React.FC<{
                 pagination.current_page != 1 && <Link to={`?${othersParams}page=${pagination.current_page-1}`} onClick={clearFunction} aria-label="previous page" className="ri-arrow-left-line" ></Link>
             }
             {
-                pagination.current_page - 3 > 0 && 
-                Array(3).fill("")
+                pagination.current_page - 2 > 0 && 
+                Array(2).fill("")
                     .map((_, idx)=>pagination.has_next_page && 
-                        <Link key={idx} to={`?${othersParams}page=${(pagination.current_page-(3-idx))}`} onClick={clearFunction}>
-                            {(pagination.current_page-(3-idx))}
+                        <Link key={idx} to={`?${othersParams}page=${(pagination.current_page-(2-idx))}`} onClick={clearFunction}>
+                            {(pagination.current_page-(2-idx))}
                         </Link>)
             }        
             <span className="active">{pagination.current_page || 1}</span>
             {
-                pagination.last_visible_page - pagination.current_page > 3 && 
-                Array(3).fill("")
+                pagination.last_visible_page - pagination.current_page > 2 && 
+                Array(2).fill("")
                     .map((_, idx)=>pagination.has_next_page && 
                         <Link key={idx} to={`?${othersParams}page=${(pagination.current_page+(idx+1))}`} onClick={clearFunction}>
                             {(pagination.current_page+(idx+1))}
