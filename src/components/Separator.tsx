@@ -7,7 +7,7 @@ const SeparatorUnstyled: React.FC<{
     useButton?: boolean,
 }> = ({className, onClick, text="See all", useButton=true})=>(
 
-    <div className={className} aria-label="separator">
+    <div className={className} role={"separator"}>
         <hr/>
             {
                 useButton ? 

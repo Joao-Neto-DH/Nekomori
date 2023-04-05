@@ -6,6 +6,7 @@ import AnimeType from "../@types/AnimeType";
 import Image from "../@types/Image";
 import CategoryGroup from "../components/CategoryGroup";
 import LoaderIndicator from "../components/LoaderIndicator";
+import Pictures from "../components/Pictures";
 import SectionContent from "../components/SectionContent";
 import Separator from "../components/Separator";
 import mediaQuery from "../util/mediaQuery";
@@ -94,7 +95,7 @@ const DetailsPage: React.FC<{className?: string}> = ({className}) => {
                     <ul className="anime-screenshot">
                         <LoaderIndicator visible={!pictures} />
                         {
-                            pictures && pictures.map((img, idx)=><li key={idx}><img src={img.webp.image_url} alt={params.title} data-target="slide"/></li>)
+                            pictures && <Pictures images={pictures}/> //pictures.map((img, idx)=><li key={idx}><img src={img.webp.image_url} alt={params.title}/></li>)
                         }
                     </ul>
 
@@ -103,7 +104,7 @@ const DetailsPage: React.FC<{className?: string}> = ({className}) => {
                     <h2 id="trailer">Trailer</h2>
                     {
                         data?.trailer ? 
-                            <iframe src={data.trailer.embed_url} style={{width: "100%", height: "70vh"}}></iframe>
+                            <iframe src={data.trailer.embed_url} title={params.title || ""} style={{width: "100%", height: "70vh"}}></iframe>
                             :
                             <h3>No Trailer to see</h3>
                     }
