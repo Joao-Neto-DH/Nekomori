@@ -11,7 +11,8 @@ import SectionContent from "../components/SectionContent";
 import Separator from "../components/Separator";
 import mediaQuery from "../util/mediaQuery";
 
-function scored(score: number = 0): string{
+function scored(score: number = 0): string {
+    score = score ?? 0
     return score < 1000 ? score.toString() : `${Math.floor(score/1000)}k`;
 }
 
@@ -58,7 +59,7 @@ const DetailsPage: React.FC<{className?: string}> = ({className}) => {
                                     }
                                 </ul>
                             </li>
-                            <li><span>Score: </span>{data?.score}</li>
+                            <li><span>Score: </span>{data?.score || "S/N"}</li>
                             <li><span>Scored by: </span>{scored(data?.scored_by)}</li>
                             <li><span>Since: </span>{data && `${data?.aired.prop.from.day.toString().padStart(2, "0")}-${data?.aired.prop.from.month.toString().padStart(2, "0")}-${data?.aired.prop.from.year}`}</li>
                             <li><span>Duration: </span>{data?.duration}</li>

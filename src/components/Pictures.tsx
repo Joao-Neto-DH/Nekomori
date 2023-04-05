@@ -62,7 +62,7 @@ const DialogOverlay = styled(Dialog.Overlay)`
 `;
 
 const DialogContent = styled(Dialog.Content)`
-    max-height: 100vh;
+    max-height: 96vh;
     max-width: 80%;
     position: absolute;
     top: 50%;
