@@ -8,11 +8,13 @@ import CategoryGroup from "../components/CategoryGroup";
 import LoaderIndicator from "../components/LoaderIndicator";
 import Pagination from "../components/Pagination";
 import SectionContent from "../components/SectionContent";
+import useTitle from "../hooks/useTitle";
 
 const SearchUnstyled: React.FC<{}> = ()=>{
     const [response, setResponse] = useState<JakanQueryResponse>()
     const [params] = useSearchParams();
     const clearResponse = useCallback(()=>setResponse(undefined),[]);
+    const setTitle = useTitle("Search - "+params.get("q"));
 
     useEffect(()=>{
         if(response) return;

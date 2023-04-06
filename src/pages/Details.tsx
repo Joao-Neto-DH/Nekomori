@@ -9,6 +9,7 @@ import LoaderIndicator from "../components/LoaderIndicator";
 import Pictures from "../components/Pictures";
 import SectionContent from "../components/SectionContent";
 import Separator from "../components/Separator";
+import useTitle from "../hooks/useTitle";
 import mediaQuery from "../util/mediaQuery";
 
 function scored(score: number = 0): string {
@@ -20,7 +21,8 @@ const DetailsPage: React.FC<{className?: string}> = ({className}) => {
     const [data, setData] = useState<AnimeType>();
     const [pictures, setPictures] = useState<Image[]>();
     const params = useParams();
-
+    useTitle(params.title);
+    
     useEffect(()=>{
         const search = new Jakan().withMemory().forSearch();
 

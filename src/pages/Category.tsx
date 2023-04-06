@@ -7,12 +7,14 @@ import CategoryGroup from "../components/CategoryGroup";
 import LoaderIndicator from "../components/LoaderIndicator";
 import Pagination from "../components/Pagination";
 import SectionContent from "../components/SectionContent";
+import useTitle from "../hooks/useTitle";
 
 const Category = () => {
     const [response, setResponse] = useState<JakanQueryResponse>();
     const [params] = useSearchParams();
     const routeParams = useParams();
     const clearResponse = useCallback(()=>setResponse(undefined),[]);
+    useTitle(routeParams.category);
 
     useEffect(()=>{
         if(response) return;
