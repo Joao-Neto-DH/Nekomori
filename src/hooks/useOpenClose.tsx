@@ -7,7 +7,7 @@ const useOpenClose = (open = false)=>{
         setIsOpened(!isOpened);
     }
 
-    return [isOpened, toggle];
+    return {isOpened, toggle};
 }
 
 export {useOpenClose}

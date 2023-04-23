@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import mediaQuery from "../util/mediaQuery";
+import MenuContext from "../util/MenuContext";
 
-const NavigationUnstyled: React.FC<{className?: string}> = ({className}) => {
-    const [opened, setOpened] = useState(false);
+const NavigationUnstyled: React.FC<{
+    className?: string
+}> = ({className}) => {
+    const { menu: {toggle, isOpened}} = useContext(MenuContext);
 
     return (
-        <nav className={`${className} ${opened ? "opened" : ""}`}>
+        <nav className={`${className} ${isOpened ? "opened" : ""}`}>
             <ul>
-                <li className="close-menu" role={"button"} onClick={()=>setOpened(!opened)}>
+                <li className="close-menu" role={"button"} onClick={toggle}>
                     <span className="ri-close-line"></span>
                 </li>
                 <li>
@@ -43,8 +46,9 @@ const Navigation = styled(NavigationUnstyled)`
     left: -100%;
     transition: left 0.3s;
     overflow-y: auto;
-   
-    &.opended{
+    z-index: 999;
+    
+    &.opened{
         left: 0 !important;
     }
 
