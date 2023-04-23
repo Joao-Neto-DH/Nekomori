@@ -1,12 +1,16 @@
 import styled from "styled-components";
 import mediaQuery from "../util/mediaQuery";
 
-const ProfileUnstyled: React.FC<{className?: string}> = ({className}) => (
+const ProfileUnstyled: React.FC<{
+    className?: string, 
+    isSearchBarVisible: boolean,
+    toggleSearchBarVisible: ()=>void
+}> = ({className, isSearchBarVisible, toggleSearchBarVisible}) => (
     <div className={className}>
-        <button className="ri-search-line" aria-label="agenda"></button>
-        <button className="ri-alarm-fill" aria-label="agenda"></button>
-        <button className="ri-notification-2-fill" aria-label="notificações"></button>
-        <button className="user" title="joão neto" aria-label="perfil">
+        <button className={`ri-${isSearchBarVisible? "close" : "search"}-line`} aria-label="search" onClick={toggleSearchBarVisible}></button>
+        <button className="ri-alarm-fill" aria-label="alarm"></button>
+        <button className="ri-notification-2-fill" aria-label="notification"></button>
+        <button className="user" title="joão neto" aria-label="profile">
             <div>
                 <img src="/naruto.jpg" alt="joão neto"/>
             </div>

@@ -23,7 +23,7 @@ const AnimeUnstyled: React.FC<{
         </h2>
         <p className="anime-category">
             {
-                data.genres.map(genre=><Link to={"#"} key={genre.mal_id}>{genre.name}</Link>)
+                data.genres.map(genre=><Link to={`/category/${genre.mal_id}/${genre.name}`} key={genre.mal_id}>{genre.name}</Link>)
             }
         </p>
     </div>
