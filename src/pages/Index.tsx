@@ -21,7 +21,9 @@ const Index = ()=> {
         search.anime({
             q: "",
             page: (params.get("page") as any)|| 1,
-            sfw: false
+            sfw: false,
+            order_by: "score",
+            sort: "desc"
             // genres: "action"
         })
         .then(res=>setResponse(res))

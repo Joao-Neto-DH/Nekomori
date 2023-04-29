@@ -14,7 +14,7 @@ const SearchUnstyled: React.FC<{}> = ()=>{
     const [response, setResponse] = useState<JakanQueryResponse>()
     const [params] = useSearchParams();
     const clearResponse = useCallback(()=>setResponse(undefined),[]);
-    const setTitle = useTitle("Search - "+params.get("q"));
+    useTitle("Search - "+params.get("q"));
 
     useEffect(()=>{
         if(response) return;
@@ -23,7 +23,9 @@ const SearchUnstyled: React.FC<{}> = ()=>{
         search.anime({
             q: params.get("q") || "",
             page: (params.get("page") as any) || 1,
-            sfw: false
+            sfw: false,
+            order_by: "score",
+            sort: "desc"
         })
         .then(res=>setResponse(res))
         .catch(err=>console.log(err))

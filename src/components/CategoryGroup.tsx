@@ -1,4 +1,5 @@
 import { Jakan } from "jakan";
+import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -50,4 +51,4 @@ const CategoryGroup = styled(Category)`
     }
 `;
 
-export default CategoryGroup;
+export default React.memo(CategoryGroup);

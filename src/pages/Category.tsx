@@ -23,7 +23,9 @@ const Category = () => {
         search.anime({
             q: "",
             page: (params.get("page") as any) || 1,
-            genres: routeParams.id
+            genres: routeParams.id,
+            order_by: "score",
+            sort: "desc"
         })
         .then(res=>setResponse(res))
         .catch(err=>console.log(err));
