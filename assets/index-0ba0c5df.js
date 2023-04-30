@@ -578,7 +578,7 @@ h2{
             transform: translate(-50%,-50%);
         }
     }
-`,b$=({className:e,isSearchBarVisible:t,toggleSearchBarVisible:n})=>ge("div",{className:e,children:[A("button",{className:`ri-${t?"close":"search"}-line`,"aria-label":"search",onClick:n}),A("button",{className:"ri-alarm-fill","aria-label":"alarm"}),A("button",{className:"ri-notification-2-fill","aria-label":"notification"}),ge("button",{className:"user",title:"joão neto","aria-label":"profile",children:[A("div",{children:A("img",{src:"/naruto.jpg",alt:"joão neto"})}),ge("ul",{children:[A("li",{children:A("a",{href:"#",children:"Perfil"})}),A("li",{children:A("a",{href:"#",children:"Definições"})}),A("li",{children:A("a",{href:"#",children:"Favoritos"})}),A("li",{children:A("a",{href:"#",children:"Sair"})})]})]})]}),E$=Ke(b$)`
+`,b$=({className:e,isSearchBarVisible:t,toggleSearchBarVisible:n})=>ge("div",{className:e,children:[A("button",{className:`ri-${t?"close":"search"}-line`,"aria-label":"search",onClick:n}),A("button",{className:"ri-alarm-fill","aria-label":"alarm"}),A("button",{className:"ri-notification-2-fill","aria-label":"notification"}),ge("button",{className:"user",title:"joão neto","aria-label":"profile",children:[A("div",{children:A("img",{src:"../assets/naruto.jpg",alt:"joão neto"})}),ge("ul",{children:[A("li",{children:A("a",{href:"#",children:"Perfil"})}),A("li",{children:A("a",{href:"#",children:"Definições"})}),A("li",{children:A("a",{href:"#",children:"Favoritos"})}),A("li",{children:A("a",{href:"#",children:"Sair"})})]})]})]}),E$=Ke(b$)`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -669,7 +669,7 @@ h2{
     button{
         padding: 10px;
     }
-`,_$=({className:e})=>{const t=F1(),{menu:{toggle:n}}=x.useContext(Qd);return ge("header",{className:e,children:[A(S$,{}),A("button",{className:"ri-menu-line",onClick:n}),ge("div",{children:[A(Mt,{to:"/",children:A("img",{src:"/nekomori-logo.png",width:"150",alt:"anime nekomori"})}),A(C$,{className:`${t.isOpened?"":"closed"}`}),A(E$,{isSearchBarVisible:t.isOpened,toggleSearchBarVisible:t.toggle})]})]})},T$=Ke(_$)`
+`,_$=({className:e})=>{const t=F1(),{menu:{toggle:n}}=x.useContext(Qd);return ge("header",{className:e,children:[A(S$,{}),A("button",{className:"ri-menu-line",onClick:n}),ge("div",{children:[A(Mt,{to:"/",children:A("img",{src:"../assets/nekomori-logo.png",width:"150",alt:"anime nekomori"})}),A(C$,{className:`${t.isOpened?"":"closed"}`}),A(E$,{isSearchBarVisible:t.isOpened,toggleSearchBarVisible:t.toggle})]})]})},T$=Ke(_$)`
 
     display: flex;
     justify-content: space-between;
