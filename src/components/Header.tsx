@@ -19,7 +19,7 @@ const HeaderUnstyled: React.FC<{className?: string}> = ({className}) => {
 
             <div>
                 <Link to={"/"}>
-                    <img src="/nekomori-logo.png" width="150" alt="anime nekomori"/>
+                    <img src="/Nekomori/nekomori-logo.png" width="150" alt="anime nekomori"/>
                 </Link>
                 <SearchForm className={`${search.isOpened ? "" : "closed"}`}/>
                 <Profile isSearchBarVisible={search.isOpened} toggleSearchBarVisible={search.toggle} />

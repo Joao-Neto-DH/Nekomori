@@ -12,7 +12,7 @@ const ProfileUnstyled: React.FC<{
         <button className="ri-notification-2-fill" aria-label="notification"></button>
         <button className="user" title="joão neto" aria-label="profile">
             <div>
-                <img src="/naruto.jpg" alt="joão neto"/>
+                <img src="/Nekomori/naruto.jpg" alt="joão neto"/>
             </div>
             {/* Opções de usuário */}
             <ul>

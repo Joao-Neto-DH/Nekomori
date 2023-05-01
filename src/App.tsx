@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import Category from "./pages/Category";
 import Details from "./pages/Details";
@@ -7,7 +7,7 @@ import Layout from "./pages/Layout";
 import Search from "./pages/Search";
 import { darkTheme } from "./themes/dark-theme";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Layout />,

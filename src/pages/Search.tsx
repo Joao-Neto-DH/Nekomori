@@ -1,5 +1,5 @@
 import { Jakan, JakanQueryResponse } from "jakan";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 import AnimeType from "../@types/AnimeType";
@@ -9,27 +9,35 @@ import LoaderIndicator from "../components/LoaderIndicator";
 import Pagination from "../components/Pagination";
 import SectionContent from "../components/SectionContent";
 import useTitle from "../hooks/useTitle";
+import useSearch from "../hooks/useSearch";
 
 const SearchUnstyled: React.FC<{}> = ()=>{
-    const [response, setResponse] = useState<JakanQueryResponse>()
+    // const [response, setResponse] = useState<JakanQueryResponse>();
+    const {result: {status, response}, dispatch} = useSearch();
     const [params] = useSearchParams();
-    const clearResponse = useCallback(()=>setResponse(undefined),[]);
-    useTitle("Search - "+params.get("q"));
+    const clearResponse = useCallback(()=>dispatch({type: "LOADING"}),[]);
+    // useTitle("Search - "+params.get("q"));
 
-    useEffect(()=>{
-        if(response) return;
+    // console.log(response)
 
-        const search = new Jakan().withMemory().forSearch();
-        search.anime({
-            q: params.get("q") || "",
-            page: (params.get("page") as any) || 1,
-            sfw: false,
-            order_by: "score",
-            sort: "desc"
-        })
-        .then(res=>setResponse(res))
-        .catch(err=>console.log(err))
-    }, [response]);
+    // if(response && !qRef.current?.includes(params.get("q") || "")){
+    //     clearResponse()
+    // }
+
+    // useEffect(()=>{
+    //     if(response) return;
+
+    //     const search = new Jakan().withMemory().forSearch();
+    //     search.anime({
+    //         q: params.get("q") || "",
+    //         page: (params.get("page") as any) || 1,
+    //         sfw: false,
+    //         order_by: "score",
+    //         sort: "desc"
+    //     })
+    //     .then(res=>setResponse(res))
+    //     .catch(err=>console.log(err))
+    // }, [response]);
 
     return(
         <>
@@ -38,10 +46,10 @@ const SearchUnstyled: React.FC<{}> = ()=>{
             </SectionContent>
             <SectionContent title={`Results of ${params.get("q") || ""}`} showButton={false}>
                 {
-                    !response ?
+                    !response.pagination ?
                         <LoaderIndicator visible={true}/>
                         :
-                        <p>He have found { response && response.pagination?.items.total } results of { params.get("q") || "" }</p>
+                        <p>We have found { response && response.pagination?.items.total } results of { params.get("q") || "" }</p>
                 }
             </SectionContent>
 

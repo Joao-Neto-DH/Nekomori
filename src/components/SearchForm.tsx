@@ -1,10 +1,11 @@
+import { Form } from "react-router-dom";
 import styled from "styled-components";
 
 const SearchFormUnstyled: React.FC<{className?: string}> = ({className}) => (
-    <form className={className} action="/search" method="get">
+    <Form className={className} action="/search" method="get">
         <input type="text" name="q" id="q" placeholder="Buscar por animes" required/>
         <button type="submit" aria-label="pesquisar" className="ri-search-line"></button>
-    </form>
+    </Form>
 );
 
 const SearchForm = styled(SearchFormUnstyled)`
