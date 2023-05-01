@@ -7,7 +7,7 @@ import MenuContext from "../util/MenuContext"
 import { useOpenClose } from "../hooks/useOpenClose"
 
 const Layout: React.FC<{}> = () => {
-    const menu = useOpenClose(true);
+    const menu = useOpenClose();
     return (
       <>
         <GlobalStyle />

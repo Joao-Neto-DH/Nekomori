@@ -132,7 +132,8 @@ const Details = styled(DetailsPage)`
         align-content: flex-start;
         gap: 36px;
         img{
-            width: auto;
+            width: 100%;
+            max-width: 460px;
             border-radius: 4px;
         }
     }

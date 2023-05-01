@@ -16,7 +16,7 @@ const SearchUnstyled: React.FC<{}> = ()=>{
     const {result: {status, response}, dispatch} = useSearch();
     const [params] = useSearchParams();
     const clearResponse = useCallback(()=>dispatch({type: "LOADING"}),[]);
-    // useTitle("Search - "+params.get("q"));
+    useTitle("Search - "+params.get("q"));
 
     // console.log(response)
 
