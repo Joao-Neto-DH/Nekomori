@@ -5,6 +5,7 @@ import Details from "./pages/Details";
 import Index from "./pages/Index";
 import Layout from "./pages/Layout";
 import Search from "./pages/Search";
+import Error from "./pages/Error";
 import { darkTheme } from "./themes/dark-theme";
 
 const router = createHashRouter([
@@ -32,7 +33,8 @@ const router = createHashRouter([
         path: "search",
         element: <Search/>
       }
-    ]
+    ],
+    errorElement: <Error />
   }
 ]);
 
