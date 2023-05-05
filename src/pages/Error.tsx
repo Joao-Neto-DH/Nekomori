@@ -35,7 +35,7 @@ function Error() {
 const ImageContainer = styled(
     ({className}: {className?:string})=>(
         <div className={className}>
-            <img src="/404.svg" alt="not found error" />
+            <img src="/Nekomori/404.svg" alt="not found error" />
         </div>
     )
 )`
