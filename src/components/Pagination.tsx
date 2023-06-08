@@ -53,6 +53,7 @@ const PaginationUnstyled: React.FC<{
 const Pagination = styled(PaginationUnstyled)`
     display: flex;
     justify-content: center;
+    margin-top: 20px;
     *{
         display: flex;
         padding: 8px;

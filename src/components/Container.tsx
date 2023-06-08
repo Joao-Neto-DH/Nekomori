@@ -24,11 +24,13 @@ const Container = styled(ContainerUnstyled)`
         /* width: calc(100% - 48px); */
         overflow: auto;
         padding: 10px;
+        /* padding-bottom: 76px; */
     }
 
     @media screen and (min-width: ${mediaQuery.tablet}px) {
         main{
             padding: 0 20px;
+            /* padding-bottom: 76px; */
         }
     }
 `;

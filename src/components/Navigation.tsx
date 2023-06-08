@@ -44,6 +44,7 @@ const Navigation = styled(NavigationUnstyled)`
     position: absolute;
     top: 0;
     left: -100%;
+    bottom: 0;
     transition: left 0.3s;
     overflow-y: auto;
     z-index: 999;

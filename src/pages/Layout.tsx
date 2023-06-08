@@ -5,6 +5,7 @@ import GlobalStyle from "../components/GlobalStyle"
 import InternetConnection from "../components/InternetConnection"
 import MenuContext from "../util/MenuContext"
 import { useOpenClose } from "../hooks/useOpenClose"
+import Footer from "../components/Footer"
 
 const Layout: React.FC<{}> = () => {
     const menu = useOpenClose();
@@ -14,7 +15,10 @@ const Layout: React.FC<{}> = () => {
         <MenuContext.Provider value={{menu}}>
           <Header />
           <Container>
-            <Outlet/>
+            <>
+              <Outlet/>
+              <Footer />
+            </>
           </Container>
         </MenuContext.Provider>
         <InternetConnection />
