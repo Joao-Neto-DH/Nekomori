@@ -82,9 +82,9 @@ const DetailsPage: React.FC<{className?: string}> = ({className}) => {
                             </li>
                             <li>
                                 <ul>
-                                    <li><a href={"#synopsis"} className="btn">Synopsis</a></li>
-                                    <li><a href={"#screenshots"} className="btn">Screenshots</a></li>
-                                    <li><a href={"#trailer"} className="btn">Trailer</a></li>
+                                    <li><a href={"javascript:void(0)"} className="btn">Synopsis</a></li>
+                                    <li><a href={"javascript:void(0)"} className="btn">Screenshots</a></li>
+                                    <li><a href={"javascript:void(0)"} className="btn">Trailer</a></li>
                                 </ul>
                             </li>
                         </ul>

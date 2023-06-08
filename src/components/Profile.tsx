@@ -16,10 +16,10 @@ const ProfileUnstyled: React.FC<{
             </div>
             {/* Opções de usuário */}
             <ul>
-                <li><a href="#">Perfil</a></li>
-                <li><a href="#">Definições</a></li>
-                <li><a href="#">Favoritos</a></li>
-                <li><a href="#">Sair</a></li>
+                <li><a href="javascript:void(0)">Perfil</a></li>
+                <li><a href="javascript:void(0)">Definições</a></li>
+                <li><a href="javascript:void(0)">Favoritos</a></li>
+                <li><a href="javascript:void(0)">Sair</a></li>
             </ul>
         </button>
     </div>
