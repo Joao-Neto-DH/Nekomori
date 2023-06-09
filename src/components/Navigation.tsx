@@ -48,6 +48,8 @@ const Navigation = styled(NavigationUnstyled)`
     transition: left 0.3s;
     overflow-y: auto;
     z-index: 999;
+    height: 100vh;
+    max-height: 100vh;
     
     &.opened{
         left: 0 !important;
