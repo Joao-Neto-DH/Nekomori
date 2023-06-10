@@ -18,19 +18,19 @@ const NavigationUnstyled: React.FC<{
                 <li>
                     <NavLink to={"/"} className={props=>`${props.isActive && "active"} btn`}>
                         <span className="ri-play-fill"></span>
-                        <span aria-label="player">Reprodutor</span>
+                        <span aria-label="player">Watch</span>
                     </NavLink>
                 </li>
                 <li>
                     <NavLink to={"/"} className={props=>`${props.isActive && "active"} btn`}>
                         <span className="ri-chat-3-fill"></span>
-                        <span aria-label="bate-papo">Bate-Papo</span>
+                        <span aria-label="bate-papo">Chat</span>
                     </NavLink>
                 </li>
                 <li>
                     <NavLink to={"/"} className={props=>`${props.isActive && "active"} btn`}>
                         <span className="ri-newspaper-fill"></span>
-                        <span aria-label="notícias">Notícias</span>
+                        <span aria-label="notícias">News</span>
                     </NavLink>
                 </li>
             </ul>
@@ -117,6 +117,7 @@ const Navigation = styled(NavigationUnstyled)`
     @media screen and (min-width: ${mediaQuery.tablet}px) {
         position: relative;
         left: 0;
+        height: 100%;
         overflow-y: visible;
 
         li{    
