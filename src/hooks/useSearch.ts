@@ -41,8 +41,8 @@ function useSearch(){
             q: queryParams.current.q,
             page: Number(queryParams.current.page) || 1,
             sfw: false,
-            order_by: "score",
-            sort: "desc"
+            //order_by: "score",
+            //sort: "desc"
         })
         .then(res=>dispatch({type: "SUCCESS", payload: res}))
         .catch(err=>dispatch({type: "ERROR"}))
